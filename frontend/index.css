@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Public+Sans:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-brand-light: #A2D2FF;
+  --color-brand-medium: #3A77BF;
+  --color-brand-dark: #023E8A;
+  --color-white: #FFFFFF;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-white bg-[#121212];
+    /* Removed animated gradient, using solid dark background similar to the image provided */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Merriweather', serif;
+    /* Fallback for 'Moranga Bold' */
+    @apply font-bold;
+  }
+
+  p,
+  span,
+  div,
+  input,
+  button {
+    font-family: 'Public Sans', sans-serif;
+    /* Fallback for 'Sathu Regular' */
+  }
+}
+
+@layer components {
+
+  /* Renaming/Redefining glass classes to Solid classes as requested */
+  .glass-card {
+    @apply bg-[#1E1E1E] border border-[#333] shadow-none rounded-none;
+    /* Square/Sharp edges or slight round? Image shows square lists */
+  }
+
+  .glass-input {
+    @apply bg-[#2C2C2C] border border-[#444] rounded-md px-4 py-2 text-white placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-medium)] transition-all;
+  }
+
+  .btn-primary {
+    @apply bg-[var(--color-brand-dark)] text-white hover:bg-[var(--color-brand-medium)] transition-colors duration-200 px-6 py-2 rounded-md font-semibold border border-transparent;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border border-[var(--color-brand-light)] text-[var(--color-brand-light)] hover:bg-[var(--color-brand-light)] hover:text-[#023E8A] px-6 py-2 rounded-md transition-all duration-200;
+  }
+}
+
+/* Custom Scrollbar - kept simpler */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
